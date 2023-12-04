@@ -1,0 +1,10 @@
+{
+    "name": "argo/user-crud-raw",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "require": {}
+}
