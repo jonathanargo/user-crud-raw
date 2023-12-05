@@ -15,4 +15,4 @@ composer install
 cp .env.sample .env
 docker-compose up -d
 ```
-Make sure to enter your Google Maps API key to use address autofill.
+Make sure to add your Google Maps API key to the .env file to use address autofill.
