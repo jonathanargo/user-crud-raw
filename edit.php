@@ -5,6 +5,12 @@ require 'helpers.php';
 
 use Models\User;
 
+// Initialize dotenv and retrieve API key
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+$apiKey = $_SERVER['GOOGLE_MAPS_API_KEY'];
+
+// Make sure we passed in an ID
 $id = ($_GET['id'] ?? null);
 if (empty($id)) {
     // Just redirect to home if no ID provided
@@ -12,6 +18,7 @@ if (empty($id)) {
     exit;
 }
 
+// Locate the model
 $user = User::find($id);
 if (!$user) {
     http_response_code(404);
@@ -35,6 +42,7 @@ if ($post) {
 include 'layout/header.php';
 
 ?>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?= $apiKey ?>&libraries=places"></script>
 <main style="margin-top: 58px">
     <div class="container pt-4">
         <section class="mb-4">
@@ -129,6 +137,10 @@ include 'layout/header.php';
                             </div>
                         <?php endif; ?>
                     </div>
+
+                    <!-- Initialize the Autocomplete service -->
+                    <script src="src/js/init-google-maps-autocomplete.js"></script>
+
                     <div data-mdb-input-init class="form-outline mb-5">
                         <input 
                             type="text"

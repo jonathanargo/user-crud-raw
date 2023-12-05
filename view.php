@@ -32,51 +32,51 @@ include 'layout/header.php';
                 <form>
                     <div class="row mb-4">
                         <div class="col">
-                            <div data-mdb-input-init class="form-outline">
+                            <div class="form-outline">
                                 <label class="form-label font-bold" for="first_name">First name</label>
                                 <div><?= encode($user->first_name); ?></div>
                             </div>
                         </div>
                         <div class="col">
-                            <div data-mdb-input-init class="form-outline">
+                            <div class="form-outline">
                                 <label class="form-label font-bold" for="last_name">Last name</label>
                                 <div><?= encode($user->last_name); ?></div>
                             </div>
                         </div>
                     </div>
-                    <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="form-outline mb-4">
                         <label class="form-label font-bold" for="email">Email</label>
                         <div><?= encode($user->email); ?></div>
                     </div>
-                    <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="form-outline mb-4">
                         <label class="form-label font-bold" for="mobile_number">Phone</label>
                         <div><?= encode($user->mobile_number); ?></div>
                     </div>
-                    <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="form-outline mb-4">
                         <label class="form-label font-bold" for="address">Address</label>
                         <div><?= encode($user->address); ?></div>
                     </div>
-                    <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="form-outline mb-4">
                         <label class="form-label font-bold" for="city">City</label>
                         <div><?= encode($user->city); ?></div>
                     </div>
-                    <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="form-outline mb-4">
                         <label class="form-label font-bold" for="state">State / Province</label>
                         <div><?= encode($user->state); ?></div>
                     </div>
-                    <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="form-outline mb-4">
                         <label class="form-label font-bold" for="zip">Postal Code</label>
                         <div><?= encode($user->zip); ?></div>
                     </div>
-                    <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="form-outline mb-4">
                         <label class="form-label font-bold" for="country">Country</label>
                         <div><?= encode($user->country); ?></div>
                     </div>
-                    <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="form-outline mb-4">
                         <label class="form-label font-bold" for="created">Created At</label>
                         <div><?= $user->getFormattedCreated(); ?></div>
                     </div>
-                    <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="form-outline mb-4">
                         <label class="form-label font-bold" for="last_updated">Updated At</label>
                         <div><?= ($user->last_updated ? $user->getFormattedUpdated() : 'N/A'); ?></div>
                     </div>
