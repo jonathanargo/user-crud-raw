@@ -17,13 +17,13 @@ include 'layout/header.php';
                         <h5 class="mb-0 text-left"><strong>Users</strong></h5>
                     </div>
                     <div class="card-body">
+                        <a href="create.php" class="btn btn-primary btn-sm mb-3">Create User</a>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">First</th>
                                     <th scope="col">Last</th>
-                                    <th scope="col">Email</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
@@ -33,7 +33,6 @@ include 'layout/header.php';
                                         <th scope="row"><?= $user->id ?></th>
                                         <td><?= $user->first_name ?></td>
                                         <td><?= $user->last_name ?></td>
-                                        <td><?= $user->email ?></td>
                                         <td>
                                             <a href="view.php?id=<?= $user->id ?>" class="btn btn-secondary btn-sm">View</a>
                                             <a href="edit.php?id=<?= $user->id ?>" class="btn btn-primary btn-sm">Edit</a>

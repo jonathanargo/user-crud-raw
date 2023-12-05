@@ -189,12 +189,21 @@ class User
 
     /**
      * Returns model validation errors
-     * 
-     * @param bool $clearErrors If true, clears the errors after returning them
      */
-    public function getErrors(bool $clearErrors = true): array
+    public function getErrors(): array
     {
         return $this->errors;
+    }
+
+    public function getErrorsFlat(): array
+    {
+        $errors = [];
+        foreach ($this->errors as $attribute => $attributeErrors) {
+            foreach ($attributeErrors as $error) {
+                $errors[] = $attribute.': '.$error;
+            }
+        }
+        return $errors;
     }
 
     /**
@@ -273,6 +282,7 @@ class User
      */
     public function save(): bool
     {
+        // TODO JSA - Need to make sure the timestamp is working
         // Validate all of the model validation rules.
         if (!$this->validate()) {
             return false; // Stop here if we failed validation
@@ -312,5 +322,13 @@ class User
         $this->attributes = []; // Can no longer use this object at all
 
         return true;
+    }
+
+    /**
+     * Returns the first_name and last_name of user
+     */
+    public function getFullName():string
+    {
+        return $this->first_name.' '.$this->last_name;
     }
 }

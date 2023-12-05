@@ -34,3 +34,7 @@ function createUser() {
     }
     dd($result);
 }
+
+function encode(string $value) {
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
