@@ -12,14 +12,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `zip` varchar(128) DEFAULT NULL,
   `country` varchar(2) DEFAULT NULL,
   `timezone` varchar(32) DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
+  `created` datetime DEFAULT CURRENT_TIMESTAMP,
   `last_updated` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Uncomment to add a test user
-/*
-insert into users (`first_name`, `last_name`, `email`, `mobile_number`, `address`, `city`, `state`, `zip`, `country`, `timezone`, `created`) values
+
+insert into users (`first_name`, `last_name`, `email`, `mobile_number`, `address`, `city`, `state`, `zip`, `country`, `timezone`) values
 (
     'John',
     'Doe',
@@ -30,7 +29,5 @@ insert into users (`first_name`, `last_name`, `email`, `mobile_number`, `address
     'CA',
     '94105',
     'US',
-    'America/Los_Angeles',
-    '2023-01-01 00:00:00'
+    'America/Los_Angeles'
 );
-*/

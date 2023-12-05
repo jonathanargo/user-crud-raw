@@ -164,7 +164,7 @@ class User
             'city' => ['required', 'string'],
             'state' => ['required', 'string', 'max:2'],
             'zip' => ['required', 'string'],
-            'country' => ['required', 'string'],
+            'country' => ['required', 'string', 'max:2'],
             'timezone' => ['string'],
             // Note that we don't need to validate the MySQL timestamps. Handled by the DB for us.
         ];
@@ -330,5 +330,32 @@ class User
     public function getFullName():string
     {
         return $this->first_name.' '.$this->last_name;
+    }
+
+    // None of these date formatting functions really belong in a model, but for the sake of time...
+
+    /**
+     * Returns the created timestamp formatted to locale
+     */
+    public function getFormattedCreated(): string
+    {
+        return $this->formatDatetime($this->created);
+    }
+
+    /** 
+     * Returns the updated timestamp formatted to locale
+     */
+    public function getFormattedUpdated(): string
+    {
+        return $this->formatDatetime($this->last_updated);
+    }
+
+    private function formatDatetime(string $datetime): string
+    {
+        $locale = 'en_US';
+        $formatter = new \IntlDateFormatter('en_US', \IntlDateFormatter::MEDIUM, \IntlDateFormatter::MEDIUM);
+        $pattern = $formatter->getPattern();
+        return $formatter->format(strtotime($datetime));
+
     }
 }

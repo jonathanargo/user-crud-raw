@@ -74,11 +74,11 @@ include 'layout/header.php';
                     </div>
                     <div data-mdb-input-init class="form-outline mb-4">
                         <label class="form-label font-bold" for="created">Created At</label>
-                        <div><?= date('m/d/Y H:i:s', strtotime($user->created)); ?></div>
+                        <div><?= $user->getFormattedCreated(); ?></div>
                     </div>
                     <div data-mdb-input-init class="form-outline mb-4">
                         <label class="form-label font-bold" for="last_updated">Updated At</label>
-                        <div><?= ($user->last_updated ? date('m/d/Y H:i:s', strtotime($user->last_updated)) : 'N/A'); ?></div>
+                        <div><?= ($user->last_updated ? $user->getFormattedUpdated() : 'N/A'); ?></div>
                     </div>
                     <a href="edit.php?id=<?= $user->id ?>" class="btn btn-primary">Edit</a>
                     <a href="index.php" class="btn btn-secondary">Return</a>
