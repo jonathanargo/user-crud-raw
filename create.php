@@ -31,7 +31,9 @@ include 'layout/header.php';
 
 // Note - A lot of this is duplicated from edit.php. Need more proper templating setup in the future.
 ?>
+<?php if (!empty($apiKey)): ?>
 <script src="https://maps.googleapis.com/maps/api/js?key=<?= $apiKey ?>&libraries=places"></script>
+<?php endif; ?>
 <main style="margin-top: 58px">
     <div class="container pt-4">
         <section class="mb-4">
@@ -98,7 +100,9 @@ include 'layout/header.php';
                     </div>
 
                     <!-- Initialize the Autocomplete service -->
+                    <?php if (!empty($apiKey)): ?>
                     <script src="src/js/init-google-maps-autocomplete.js"></script>
+                    <?php endif; ?>
 
                     <div data-mdb-input-init class="form-outline mb-5">
                         <input type="text" id="city" name="User[city]" class="form-control <?= !empty($errors['city']) ? 'is-invalid' : ''; ?>" value="<?= encode($user->city); ?>" />
