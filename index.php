@@ -30,9 +30,9 @@ include 'layout/header.php';
                             <tbody>
                                 <?php foreach ($users as $user) : ?>
                                     <tr>
-                                        <th scope="row"><?= $user->id ?></th>
-                                        <td><?= $user->first_name ?></td>
-                                        <td><?= $user->last_name ?></td>
+                                        <th scope="row"><?= encode($user->id); ?></th>
+                                        <td><?= encode($user->first_name); ?></td>
+                                        <td><?= encode($user->last_name); ?></td>
                                         <td>
                                             <a href="view.php?id=<?= $user->id ?>" class="btn btn-secondary btn-sm">View</a>
                                             <a href="edit.php?id=<?= $user->id ?>" class="btn btn-primary btn-sm">Edit</a>
